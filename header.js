@@ -1,5 +1,5 @@
 const burger = document.querySelector('.burger');
-const body = document.querySelector('body');
+const body = document.body;
 const nav = document.querySelector('.nav');
 const overlay = document.querySelector('.overlay');
 const navClose = document.querySelector('.nav-close');
