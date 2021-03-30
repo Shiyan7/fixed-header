@@ -1,10 +1,10 @@
 const burger = document.querySelector('.burger');
-const body = document.body;
 const nav = document.querySelector('.nav');
 const overlay = document.querySelector('.overlay');
 const navClose = document.querySelector('.nav-close');
-const header = document.querySelector('header');
+const header = document.querySelector('.header');
 const headerWidth = parseInt(getComputedStyle(header).height, 10);
+const body = document.body;
 const isHeaderFixed = false;
 
 fixedHeader();
@@ -19,21 +19,26 @@ function fixedHeader(event) {
   }
 }
 
+const closeNav = () => {
+    body.classList.remove('lock');
+    nav.classList.remove('show');
+    overlay.style.display = 'none';
+}
 
-burger.addEventListener('click', () => {
+const openNav = () => {
     body.classList.toggle('lock');
     nav.classList.toggle('show');
     overlay.style.display = 'block'
+}
+
+burger.addEventListener('click', () => {
+    openNav();
 });
 
 overlay.addEventListener('click', () => {
-    body.classList.remove('lock');
-    nav.classList.remove('show');
-    overlay.style.display = 'none'
+    closeNav();
 });
 
 navClose.addEventListener('click', () => {
-    body.classList.remove('lock');
-    nav.classList.remove('show');
-    overlay.style.display = 'none'
+    closeNav();
 });
