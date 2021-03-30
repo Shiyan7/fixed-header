@@ -7,17 +7,17 @@ const headerWidth = parseInt(getComputedStyle(header).height, 10);
 const body = document.body;
 const isHeaderFixed = false;
 
-fixedHeader();
-
-window.addEventListener('scroll', fixedHeader);
-
-function fixedHeader(event) {
+const fixedHeader = (event) => {
   if (!isHeaderFixed && headerWidth <= window.pageYOffset) {
     header.classList.add('fixed');
   } else {
     header.classList.remove('fixed');
   }
 }
+
+window.addEventListener('scroll', fixedHeader);
+
+fixedHeader();
 
 const closeNav = () => {
     body.classList.remove('lock');
